@@ -35,7 +35,10 @@ export const translations = {
           role: "Développeur Full-Stack Senior",
           startYear: "2022",
           endYear: "Présent",
-          projects: ["Plateforme SaaS B2B", "Dashboard Analytics"],
+          projects: [
+            { name: "Plateforme SaaS B2B", description: "Plateforme de gestion d'entreprise avec tableaux de bord, gestion des utilisateurs et facturation.", link: "https://example.com/saas" },
+            { name: "Dashboard Analytics", description: "Dashboard de visualisation de données en temps réel avec graphiques interactifs.", link: "https://example.com/analytics" },
+          ],
           description: "Développement d'une plateforme SaaS B2B à grande échelle et d'un dashboard analytics avancé. Contribution à l'architecture microservices et mise en place de CI/CD.",
         },
         {
@@ -43,7 +46,10 @@ export const translations = {
           role: "Développeur Front-End",
           startYear: "2020",
           endYear: "2022",
-          projects: ["E-commerce marketplace", "Application mobile hybride"],
+          projects: [
+            { name: "E-commerce marketplace", description: "Marketplace multi-vendeurs avec panier, paiement et gestion des commandes.", link: "https://example.com/marketplace" },
+            { name: "Application mobile hybride", description: "Application React Native pour iOS et Android avec notifications push.", link: "https://example.com/mobile" },
+          ],
           description: "Conception d'un marketplace e-commerce et développement d'une application mobile hybride avec React Native. Optimisation des performances front-end.",
         },
         {
@@ -51,7 +57,9 @@ export const translations = {
           role: "Développeur React",
           startYear: "2019",
           endYear: "2020",
-          projects: ["MVP application de gestion"],
+          projects: [
+            { name: "MVP application de gestion", description: "Application de gestion de projet avec Kanban, suivi du temps et rapports.", link: "https://example.com/mvp" },
+          ],
           description: "Développement du MVP d'une application de gestion de projet. Mise en place de l'architecture React et intégration des API REST.",
         },
         {
@@ -59,7 +67,10 @@ export const translations = {
           role: "Développeur Junior",
           startYear: "2018",
           endYear: "2019",
-          projects: ["Sites vitrines", "Blog CMS"],
+          projects: [
+            { name: "Sites vitrines", description: "Sites institutionnels responsive pour PME.", link: "https://example.com/sites" },
+            { name: "Blog CMS", description: "CMS de blog sur mesure avec éditeur WYSIWYG.", link: "https://example.com/blog" },
+          ],
           description: "Création de sites vitrines et d'un CMS de blog sur mesure. Première expérience professionnelle en développement web.",
         },
       ],
@@ -92,7 +103,10 @@ export const translations = {
           degree: "Master Informatique — Génie Logiciel",
           startYear: "2016",
           endYear: "2018",
-          projects: ["Mémoire: Architecture microservices", "Projet IoT"],
+          projects: [
+            { name: "Mémoire: Architecture microservices", description: "Recherche sur les patterns d'architecture microservices et leur implémentation.", link: "" },
+            { name: "Projet IoT", description: "Système de monitoring IoT avec capteurs connectés et dashboard temps réel.", link: "" },
+          ],
           description: "Étude approfondie du génie logiciel, de l'architecture des systèmes et des méthodes agiles. Mémoire sur l'architecture microservices.",
         },
         {
@@ -100,7 +114,9 @@ export const translations = {
           degree: "Licence Informatique",
           startYear: "2013",
           endYear: "2016",
-          projects: ["Application de gestion de bibliothèque"],
+          projects: [
+            { name: "Application de gestion de bibliothèque", description: "Application CRUD complète pour la gestion d'une bibliothèque universitaire.", link: "" },
+          ],
           description: "Formation en algorithmique, structures de données, programmation orientée objet et bases de données relationnelles.",
         },
         {
@@ -108,7 +124,9 @@ export const translations = {
           degree: "Baccalauréat Scientifique",
           startYear: "2010",
           endYear: "2013",
-          projects: ["Mention Très Bien"],
+          projects: [
+            { name: "Mention Très Bien", description: "Obtention du baccalauréat avec mention très bien.", link: "" },
+          ],
           description: "Baccalauréat scientifique avec spécialité mathématiques. Mention Très Bien.",
         },
         {
@@ -116,7 +134,10 @@ export const translations = {
           degree: "Certifications AWS & Docker",
           startYear: "2021",
           endYear: "2022",
-          projects: ["AWS Solutions Architect", "Docker Certified Associate"],
+          projects: [
+            { name: "AWS Solutions Architect", description: "Certification officielle AWS pour l'architecture cloud.", link: "https://aws.amazon.com/certification/" },
+            { name: "Docker Certified Associate", description: "Certification officielle Docker pour la conteneurisation.", link: "https://www.docker.com/certification/" },
+          ],
           description: "Certifications professionnelles en cloud computing et conteneurisation. AWS Solutions Architect et Docker Certified Associate.",
         },
       ],
@@ -207,7 +228,10 @@ export const translations = {
           role: "Senior Full-Stack Developer",
           startYear: "2022",
           endYear: "Present",
-          projects: ["B2B SaaS Platform", "Analytics Dashboard"],
+          projects: [
+            { name: "B2B SaaS Platform", description: "Enterprise management platform with dashboards, user management and billing.", link: "https://example.com/saas" },
+            { name: "Analytics Dashboard", description: "Real-time data visualization dashboard with interactive charts.", link: "https://example.com/analytics" },
+          ],
           description: "Developed a large-scale B2B SaaS platform and advanced analytics dashboard. Contributed to microservices architecture and CI/CD setup.",
         },
         {
@@ -215,7 +239,10 @@ export const translations = {
           role: "Front-End Developer",
           startYear: "2020",
           endYear: "2022",
-          projects: ["E-commerce marketplace", "Hybrid mobile app"],
+          projects: [
+            { name: "E-commerce marketplace", description: "Multi-vendor marketplace with cart, payment and order management.", link: "https://example.com/marketplace" },
+            { name: "Hybrid mobile app", description: "React Native app for iOS and Android with push notifications.", link: "https://example.com/mobile" },
+          ],
           description: "Designed an e-commerce marketplace and developed a hybrid mobile application with React Native. Front-end performance optimization.",
         },
         {
@@ -223,7 +250,9 @@ export const translations = {
           role: "React Developer",
           startYear: "2019",
           endYear: "2020",
-          projects: ["Management app MVP"],
+          projects: [
+            { name: "Management app MVP", description: "Project management app with Kanban, time tracking and reports.", link: "https://example.com/mvp" },
+          ],
           description: "Developed MVP of a project management application. Set up React architecture and REST API integration.",
         },
         {
@@ -231,7 +260,10 @@ export const translations = {
           role: "Junior Developer",
           startYear: "2018",
           endYear: "2019",
-          projects: ["Showcase websites", "Blog CMS"],
+          projects: [
+            { name: "Showcase websites", description: "Responsive showcase websites for SMBs.", link: "https://example.com/sites" },
+            { name: "Blog CMS", description: "Custom blog CMS with WYSIWYG editor.", link: "https://example.com/blog" },
+          ],
           description: "Created showcase websites and a custom blog CMS. First professional experience in web development.",
         },
       ],
@@ -264,7 +296,10 @@ export const translations = {
           degree: "MSc Computer Science — Software Engineering",
           startYear: "2016",
           endYear: "2018",
-          projects: ["Thesis: Microservices Architecture", "IoT Project"],
+          projects: [
+            { name: "Thesis: Microservices Architecture", description: "Research on microservices architecture patterns and implementation.", link: "" },
+            { name: "IoT Project", description: "IoT monitoring system with connected sensors and real-time dashboard.", link: "" },
+          ],
           description: "In-depth study of software engineering, systems architecture and agile methods. Thesis on microservices architecture.",
         },
         {
@@ -272,7 +307,9 @@ export const translations = {
           degree: "BSc Computer Science",
           startYear: "2013",
           endYear: "2016",
-          projects: ["Library management application"],
+          projects: [
+            { name: "Library management application", description: "Full CRUD application for university library management.", link: "" },
+          ],
           description: "Training in algorithms, data structures, object-oriented programming and relational databases.",
         },
         {
@@ -280,7 +317,9 @@ export const translations = {
           degree: "Scientific Baccalauréat",
           startYear: "2010",
           endYear: "2013",
-          projects: ["Highest Honors"],
+          projects: [
+            { name: "Highest Honors", description: "Graduated with highest honors.", link: "" },
+          ],
           description: "Scientific baccalauréat with mathematics specialization. Graduated with highest honors.",
         },
         {
@@ -288,7 +327,10 @@ export const translations = {
           degree: "AWS & Docker Certifications",
           startYear: "2021",
           endYear: "2022",
-          projects: ["AWS Solutions Architect", "Docker Certified Associate"],
+          projects: [
+            { name: "AWS Solutions Architect", description: "Official AWS cloud architecture certification.", link: "https://aws.amazon.com/certification/" },
+            { name: "Docker Certified Associate", description: "Official Docker containerization certification.", link: "https://www.docker.com/certification/" },
+          ],
           description: "Professional certifications in cloud computing and containerization. AWS Solutions Architect and Docker Certified Associate.",
         },
       ],
@@ -379,7 +421,10 @@ export const translations = {
           role: "Desenvolvedor Full-Stack Sênior",
           startYear: "2022",
           endYear: "Presente",
-          projects: ["Plataforma SaaS B2B", "Dashboard Analytics"],
+          projects: [
+            { name: "Plataforma SaaS B2B", description: "Plataforma de gestão empresarial com dashboards, gestão de utilizadores e faturação.", link: "https://example.com/saas" },
+            { name: "Dashboard Analytics", description: "Dashboard de visualização de dados em tempo real com gráficos interativos.", link: "https://example.com/analytics" },
+          ],
           description: "Desenvolvimento de uma plataforma SaaS B2B em larga escala e dashboard analítico avançado. Contribuição para arquitetura de microserviços e configuração de CI/CD.",
         },
         {
@@ -387,7 +432,10 @@ export const translations = {
           role: "Desenvolvedor Front-End",
           startYear: "2020",
           endYear: "2022",
-          projects: ["Marketplace e-commerce", "App mobile híbrido"],
+          projects: [
+            { name: "Marketplace e-commerce", description: "Marketplace multi-vendedor com carrinho, pagamento e gestão de pedidos.", link: "https://example.com/marketplace" },
+            { name: "App mobile híbrido", description: "Aplicação React Native para iOS e Android com notificações push.", link: "https://example.com/mobile" },
+          ],
           description: "Design de um marketplace e-commerce e desenvolvimento de um aplicativo mobile híbrido com React Native. Otimização de performance front-end.",
         },
         {
@@ -395,7 +443,9 @@ export const translations = {
           role: "Desenvolvedor React",
           startYear: "2019",
           endYear: "2020",
-          projects: ["MVP app de gestão"],
+          projects: [
+            { name: "MVP app de gestão", description: "Aplicação de gestão de projetos com Kanban, controle de tempo e relatórios.", link: "https://example.com/mvp" },
+          ],
           description: "Desenvolvimento do MVP de um aplicativo de gestão de projetos. Configuração da arquitetura React e integração de APIs REST.",
         },
         {
@@ -403,7 +453,10 @@ export const translations = {
           role: "Desenvolvedor Júnior",
           startYear: "2018",
           endYear: "2019",
-          projects: ["Sites institucionais", "Blog CMS"],
+          projects: [
+            { name: "Sites institucionais", description: "Sites responsivos para PMEs.", link: "https://example.com/sites" },
+            { name: "Blog CMS", description: "CMS de blog personalizado com editor WYSIWYG.", link: "https://example.com/blog" },
+          ],
           description: "Criação de sites institucionais e CMS de blog personalizado. Primeira experiência profissional em desenvolvimento web.",
         },
       ],
@@ -436,7 +489,10 @@ export const translations = {
           degree: "Mestrado em Informática — Engenharia de Software",
           startYear: "2016",
           endYear: "2018",
-          projects: ["Dissertação: Arquitetura de microserviços", "Projeto IoT"],
+          projects: [
+            { name: "Dissertação: Arquitetura de microserviços", description: "Pesquisa sobre padrões de arquitetura de microserviços e sua implementação.", link: "" },
+            { name: "Projeto IoT", description: "Sistema de monitoramento IoT com sensores conectados e dashboard em tempo real.", link: "" },
+          ],
           description: "Estudo aprofundado de engenharia de software, arquitetura de sistemas e métodos ágeis. Dissertação sobre arquitetura de microserviços.",
         },
         {
@@ -444,7 +500,9 @@ export const translations = {
           degree: "Bacharelado em Informática",
           startYear: "2013",
           endYear: "2016",
-          projects: ["Aplicativo de gestão de biblioteca"],
+          projects: [
+            { name: "Aplicativo de gestão de biblioteca", description: "Aplicação CRUD completa para gestão de biblioteca universitária.", link: "" },
+          ],
           description: "Formação em algoritmos, estruturas de dados, programação orientada a objetos e bancos de dados relacionais.",
         },
         {
@@ -452,7 +510,9 @@ export const translations = {
           degree: "Baccalauréat Científico",
           startYear: "2010",
           endYear: "2013",
-          projects: ["Menção Muito Bem"],
+          projects: [
+            { name: "Menção Muito Bem", description: "Graduado com menção muito bem.", link: "" },
+          ],
           description: "Baccalauréat científico com especialização em matemática. Graduado com menção muito bem.",
         },
         {
@@ -460,7 +520,10 @@ export const translations = {
           degree: "Certificações AWS & Docker",
           startYear: "2021",
           endYear: "2022",
-          projects: ["AWS Solutions Architect", "Docker Certified Associate"],
+          projects: [
+            { name: "AWS Solutions Architect", description: "Certificação oficial AWS para arquitetura cloud.", link: "https://aws.amazon.com/certification/" },
+            { name: "Docker Certified Associate", description: "Certificação oficial Docker para conteinerização.", link: "https://www.docker.com/certification/" },
+          ],
           description: "Certificações profissionais em computação em nuvem e conteinerização. AWS Solutions Architect e Docker Certified Associate.",
         },
       ],
