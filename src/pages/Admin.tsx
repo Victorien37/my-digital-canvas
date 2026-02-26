@@ -2,7 +2,7 @@ import { useState } from "react";
 import { usePortfolio } from "@/contexts/PortfolioDataContext";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Trash2, Plus, Save, RotateCcw, ArrowLeft, GripVertical } from "lucide-react";
-import type { ExperienceItem, EducationItem, SkillCategory, LanguageItem, ProjectItem, HeroData } from "@/hooks/usePortfolioData";
+import type { ExperienceItem, EducationItem, SkillCategory, LanguageItem, ProjectItem, HeroData, SubProject } from "@/hooks/usePortfolioData";
 
 type Tab = "hero" | "experiences" | "education" | "skills" | "projects";
 
@@ -114,6 +114,37 @@ const TagsInput = ({ label, value, onChange }: { label: string; value: string[];
   );
 };
 
+const SubProjectsEditor = ({ label, value, onChange }: { label: string; value: SubProject[]; onChange: (v: SubProject[]) => void }) => {
+  const update = (i: number, key: keyof SubProject, val: string) => {
+    const next = [...value];
+    next[i] = { ...next[i], [key]: val };
+    onChange(next);
+  };
+  const add = () => onChange([...value, { name: "", description: "", link: "" }]);
+  const remove = (i: number) => onChange(value.filter((_, j) => j !== i));
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      <label className="text-xs font-medium text-muted-foreground">{label}</label>
+      <div className="space-y-3">
+        {value.map((p, i) => (
+          <div key={i} className="p-3 rounded-lg bg-muted/50 border border-border space-y-2 relative group">
+            <button onClick={() => remove(i)} className="absolute top-2 right-2 p-1 rounded text-muted-foreground hover:text-destructive opacity-0 group-hover:opacity-100 transition-opacity">
+              <Trash2 size={12} />
+            </button>
+            <input value={p.name} onChange={e => update(i, "name", e.target.value)} placeholder="Nom du projet" className="w-full px-2.5 py-1.5 rounded-md bg-background border border-border text-foreground text-xs focus:outline-none focus:ring-2 focus:ring-primary/50" />
+            <textarea value={p.description} onChange={e => update(i, "description", e.target.value)} placeholder="Description..." rows={2} className="w-full px-2.5 py-1.5 rounded-md bg-background border border-border text-foreground text-xs focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none" />
+            <input value={p.link} onChange={e => update(i, "link", e.target.value)} placeholder="Lien (optionnel)" className="w-full px-2.5 py-1.5 rounded-md bg-background border border-border text-foreground text-xs focus:outline-none focus:ring-2 focus:ring-primary/50" />
+          </div>
+        ))}
+      </div>
+      <button onClick={add} className="mt-1 px-3 py-1.5 rounded-lg border border-dashed border-border hover:border-primary/50 text-muted-foreground hover:text-primary text-xs font-medium flex items-center gap-1.5 transition-colors w-fit">
+        <Plus size={12} /> Ajouter un projet
+      </button>
+    </div>
+  );
+};
+
 const Card = ({ children, onDelete }: { children: React.ReactNode; onDelete?: () => void }) => (
   <div className="p-5 rounded-xl bg-card border border-border relative group">
     {onDelete && (
@@ -178,7 +209,7 @@ const ExperienceEditor = ({ items, onChange }: { items: ExperienceItem[]; onChan
               <Field label="Fin" value={item.endYear} onChange={v => update(i, "endYear", v)} />
             </div>
             <Field label="Description" value={item.description} onChange={v => update(i, "description", v)} textarea />
-            <TagsInput label="Projets" value={item.projects} onChange={v => update(i, "projects", v)} />
+            <SubProjectsEditor label="Projets" value={item.projects} onChange={v => update(i, "projects", v)} />
           </div>
         </Card>
       ))}
@@ -210,7 +241,7 @@ const EducationEditor = ({ items, onChange }: { items: EducationItem[]; onChange
               <Field label="Fin" value={item.endYear} onChange={v => update(i, "endYear", v)} />
             </div>
             <Field label="Description" value={item.description} onChange={v => update(i, "description", v)} textarea />
-            <TagsInput label="Projets" value={item.projects} onChange={v => update(i, "projects", v)} />
+            <SubProjectsEditor label="Projets" value={item.projects} onChange={v => update(i, "projects", v)} />
           </div>
         </Card>
       ))}

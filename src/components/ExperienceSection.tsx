@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import CrtModal from "./CrtModal";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { usePortfolio } from "@/contexts/PortfolioDataContext";
+import type { SubProject } from "@/hooks/usePortfolioData";
 
 const ExperienceSection = () => {
   const { t } = useLanguage();
   const { data } = usePortfolio();
   const [showAll, setShowAll] = useState(false);
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<SubProject | null>(null);
 
   const items = data.experiences;
   const visibleItems = showAll ? items : items.slice(0, 3);
@@ -48,9 +51,16 @@ const ExperienceSection = () => {
                   </div>
                   <div className="flex flex-wrap gap-2 mt-3">
                     {item.projects.map((project, j) => (
-                      <span key={j} className="text-xs px-2.5 py-1 rounded-md bg-accent text-accent-foreground">
-                        {project}
-                      </span>
+                      <button
+                        key={j}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedProject(project);
+                        }}
+                        className="text-xs px-2.5 py-1 rounded-md bg-accent text-accent-foreground hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer"
+                      >
+                        {project.name}
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -76,6 +86,7 @@ const ExperienceSection = () => {
         </div>
       </div>
 
+      {/* Experience detail modal */}
       <CrtModal open={selected !== null} onClose={() => setSelectedIdx(null)}>
         {selected && (
           <div className="space-y-4">
@@ -91,12 +102,37 @@ const ExperienceSection = () => {
               <p className="text-xs font-medium text-foreground mb-2">{t.experience.projects}</p>
               <div className="flex flex-wrap gap-2">
                 {selected.projects.map((p, i) => (
-                  <span key={i} className="text-xs px-2.5 py-1 rounded-md bg-accent text-accent-foreground">
-                    {p}
-                  </span>
+                  <button
+                    key={i}
+                    onClick={() => { setSelectedIdx(null); setSelectedProject(p); }}
+                    className="text-xs px-2.5 py-1 rounded-md bg-accent text-accent-foreground hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer"
+                  >
+                    {p.name}
+                  </button>
                 ))}
               </div>
             </div>
+          </div>
+        )}
+      </CrtModal>
+
+      {/* Sub-project detail modal */}
+      <CrtModal open={selectedProject !== null} onClose={() => setSelectedProject(null)}>
+        {selectedProject && (
+          <div className="space-y-4">
+            <h3 className="font-heading text-xl font-bold text-foreground">{selectedProject.name}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">{selectedProject.description}</p>
+            {selectedProject.link && (
+              <a
+                href={selectedProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+              >
+                <ExternalLink size={14} />
+                {t.projects.viewProject}
+              </a>
+            )}
           </div>
         )}
       </CrtModal>

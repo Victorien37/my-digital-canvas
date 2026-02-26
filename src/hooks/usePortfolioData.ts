@@ -3,12 +3,18 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import type { Locale } from "@/i18n/LanguageContext";
 
 // Types for portfolio data
+export interface SubProject {
+  name: string;
+  description: string;
+  link: string;
+}
+
 export interface ExperienceItem {
   company: string;
   role: string;
   startYear: string;
   endYear: string;
-  projects: string[];
+  projects: SubProject[];
   description: string;
 }
 
@@ -17,7 +23,7 @@ export interface EducationItem {
   degree: string;
   startYear: string;
   endYear: string;
-  projects: string[];
+  projects: SubProject[];
   description: string;
 }
 
