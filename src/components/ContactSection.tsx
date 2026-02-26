@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { usePortfolio } from "@/contexts/PortfolioDataContext";
 
 const ContactSection = () => {
   const { t } = useLanguage();
+  const { data } = usePortfolio();
 
   return (
     <section id="contact" className="section-padding bg-muted/30">
@@ -44,7 +46,7 @@ const ContactSection = () => {
           <div className="text-center mt-8">
             <p className="text-muted-foreground text-sm">
               {t.contact.directEmail}{" "}
-              <a href="mailto:jean.dupont@email.com" className="text-primary hover:underline font-medium">jean.dupont@email.com</a>
+              <a href={`mailto:${data.hero.email}`} className="text-primary hover:underline font-medium">{data.hero.email}</a>
             </p>
           </div>
         </motion.div>

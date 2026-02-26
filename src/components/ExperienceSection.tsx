@@ -3,13 +3,15 @@ import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 import CrtModal from "./CrtModal";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { usePortfolio } from "@/contexts/PortfolioDataContext";
 
 const ExperienceSection = () => {
   const { t } = useLanguage();
+  const { data } = usePortfolio();
   const [showAll, setShowAll] = useState(false);
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
-  const items = t.experience.items;
+  const items = data.experiences;
   const visibleItems = showAll ? items : items.slice(0, 3);
   const selected = selectedIdx !== null ? items[selectedIdx] : null;
 
