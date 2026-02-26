@@ -2,9 +2,12 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Download, Mail, Phone, MapPin } from "lucide-react";
 import profileImg from "@/assets/profile-placeholder.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { usePortfolio } from "@/contexts/PortfolioDataContext";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const { data } = usePortfolio();
+  const hero = data.hero;
 
   return (
     <section id="presentation" className="section-padding pt-28 md:pt-36">
@@ -27,30 +30,30 @@ const HeroSection = () => {
             </div>
 
             <div className="text-center md:text-left">
-              <h2 className="font-heading text-xl font-bold text-foreground">{t.hero.name}</h2>
-              <p className="text-primary font-medium text-sm mt-1">{t.hero.role}</p>
+              <h2 className="font-heading text-xl font-bold text-foreground">{hero.name}</h2>
+              <p className="text-primary font-medium text-sm mt-1">{hero.role}</p>
             </div>
 
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Mail size={14} className="text-primary" />
-                <span>jean.dupont@email.com</span>
+                <span>{hero.email}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={14} className="text-primary" />
-                <span>+33 6 12 34 56 78</span>
+                <span>{hero.phone}</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="text-primary" />
-                <span>Paris, France</span>
+                <span>{hero.location}</span>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200" aria-label="LinkedIn">
+              <a href={hero.linkedin} target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200" aria-label="LinkedIn">
                 <Linkedin size={18} />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200" aria-label="GitHub">
+              <a href={hero.github} target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200" aria-label="GitHub">
                 <Github size={18} />
               </a>
               <a href="/cv.pdf" download className="p-2.5 rounded-lg bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200" aria-label={t.hero.downloadCv}>
@@ -74,7 +77,7 @@ const HeroSection = () => {
               <span className="gradient-text">{t.hero.titleHighlight}</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-              {t.hero.description}
+              {hero.description}
             </p>
             <div className="flex gap-4 mt-8">
               <a href="#contact" className="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity">

@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { usePortfolio } from "@/contexts/PortfolioDataContext";
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
+  const { data } = usePortfolio();
 
   return (
     <section id="projets" className="section-padding">
@@ -12,7 +14,7 @@ const ProjectsSection = () => {
         <SectionTitle title={t.projects.title} subtitle={t.projects.subtitle} />
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {t.projects.items.map((project, i) => (
+          {data.projects.map((project, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
